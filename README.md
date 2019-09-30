@@ -1,11 +1,11 @@
-#Name that pokemon!
+# Name that pokemon!
 
-###pokeapi.co
+### pokeapi.co
 
 You'll enter any pokemon or their pokedex number and it will load their picture with some info about them.
 
 
-
+![Wireframe](https://i.imgur.com/rXO8UBC.png?1)
 
 
 Could turn into a pokemon battling app. Where you randomly pick a pokemon or name one. Battle with it against a random pokemon or again a selected one.
