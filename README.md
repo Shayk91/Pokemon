@@ -28,7 +28,7 @@ call api to get images, stats, names, etc.
 hard coding in stats will be easier.
 hard coding moves
 start with using one move.
-css to make look like origonal game
+css to make look like original game
 
 strech- adding a move pull and being able to select one.
 strech- add more pokemon you can fight with instead of pikachu

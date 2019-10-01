@@ -5,18 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel"stylesheet" href"style.css">
+  <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script defer src="main.js"></script>
-  <title>Document</title>
+  <title>Are You A Pokémon Master?</title>
 </head>
 
-<body>
+<body id="index">
+  <audio preload="auto" id="music">
+    <source src="sound/theme.mp3" type="audio/mpeg">
+  </audio>
+  <header id="index-header">
+    <img class="pokemon-title" src="images/pokemon-title.png">
+    <p class="title">Are You A Pokémon Master?</p>
+  </header>
   <div class="container">
-    <div class="trainer">
-      <input type="text" name="name" placeholder="Trainer's Name">
-      <button>Click Me</button>
-    </div>
+    <img id="female" src="images/female-trainer.png">
+    <img id="pokeball" src="images/pokeball.png">
+    <img id="male" src="images/male-trainer.png">
+  </div>
+  <div class="name">
+    <input type="text" name="name" placeholder="Trainer's Name">
+    <button class="button">Click Me</button>
   </div>
 </body>
 

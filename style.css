@@ -1,4 +1,97 @@
-* {
+html {
   margin: 0;
   padding: 0;
+}
+img.pokemon-title {
+  width: 100%;
+}
+
+/* index.html*/
+
+#index {
+  background: gray;
+}
+#index-header {
+  width: 100vw;
+}
+.title {
+  text-align: center;
+}
+.container {
+  max-width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  height: 60vh;
+  justify-content: center;
+}
+img#male {
+  max-width: 30%;
+}
+img#female {
+  max-width: 30%;
+}
+img#pokeball {
+  max-height: 40%;
+  max-width: 25%;
+  align-self: center;
+  animation:spin 4s linear infinite;
+}
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+.name {
+  text-align: center;
+}
+
+/*battle.html*/
+#battle-page {
+  margin: 0;
+}
+#battle-page {
+  background-image: url(images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#header {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 5rem;
+  color: white;
+}
+#container {
+  display: grid;
+  grid-template-areas:
+  'mewtwo'
+  'pikachu';
+}
+.mewtwoDiv {
+  grid-area: mewtwo;
+  height: 25vh;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.pikachuDiv {
+  grid-area: pikachu;
+  height: 25vh;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+#pikachu {
+  width: 15%;
+}
+
+#battle {
+  background: white;
+  margin: 5px;
+  border: 5px solid black;
+  height: 28vh;
+}
+
+#text {
+  font-size: 2rem;
+  margin-left: .6rem;
 }
