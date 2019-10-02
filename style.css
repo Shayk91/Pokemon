@@ -111,12 +111,12 @@ input, textarea {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
-  width: 20vw;
+  width: 30vw;
 }
 
 .pikachuDiv {
   grid-area: pikachu-image;
-  width: 20vw;
+  width: 30vw;
   height: 25vh;
   display: flex;
   justify-content: flex-start;
@@ -134,22 +134,42 @@ input, textarea {
 }
 
 #battle {
-  background: white;
+  background: gray;
   margin: 5px;
   border: 5px solid black;
   height: 25vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#fight {
+  align-self: flex-end;
+  position: absolute;
+  bottom: 25px;
+  right: 30px;
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+  animation-duration: .4s;
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes blink {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
 }
 
 #text {
   font-size: 2rem;
   margin-left: .6rem;
-}
-
-#play {
-  width: 100vw;
-  height: 100vh;
-  background: white;
-  text-align: center;
 }
 
 #healthBar1 {
@@ -291,3 +311,12 @@ progress::-webkit-progress-value {
   width: 400px;
 }
 
+#start {
+  margin-left: 20px;
+  font-size: 3rem;
+}
+
+footer {
+  text-align: center;
+  font-size: .8rem;
+}

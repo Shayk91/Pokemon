@@ -12,6 +12,8 @@ const page1 = document.querySelector("#page1")
 const pikaHealthBar = document.querySelector("#healthPikachu")
 const mewHealthBar = document.querySelector("#healthMewtwo")
 let fighter = 0;
+const pikachuImage = document.querySelector(".pikachuDiv")
+const mewtwoImage = document.querySelector(".mewtwoDiv")
 
 const getMewtwo = (sprite) => {
   let mewtwo = document.createElement('div')
@@ -87,20 +89,23 @@ const fight = function () {
   else if (mewHealthBar.value <= 0) {
     text.innerHTML += `Mewtwo has fainted!!`
     battle.append(text)
+    // mewtwoImage.style.display = "none"
   } else if (pikaHealthBar.value <= 0) {
     text.innerHTML += `Pikachu has fainted!!`
     battle.append(text)
+    // pikachuImage.style.display = "none"
   } else {
-    text.innerHTML += `pikachu and mewtwo have defeated each other`
+    text.innerHTML += `Pikachu and Mewtwo have both fainted!!`
     battle.append(text)
   }
 }
 fightButton.addEventListener('click', fight)
+document.addEventListener('keypress', fight)
 
 const displayName = () => {
   const getName = document.createElement('div')
   getName.className = "trainer-name"
-  getName.innerHTML = `<h1 id='start'>${localStorage.name} chooses Pikachu!<h1>`
+  getName.innerHTML = `<h1 id='start'>${localStorage.name}: I choose you! Pikachu!!<h1>`
   text.append(getName)
 }
 displayName()
