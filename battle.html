@@ -12,22 +12,32 @@
 </head>
 
 <body id="battle-page">
-  <div id="image">
-    <audio autoplay loop id="wild">
-      <source src="sound/wild.mp3" type="audio/mpeg">
-    </audio>
-    <header id="header">
-      Pikachu VS Mewtwo!
-    </header>
-    <div id="container">
-
+  <div id="page1">
+    <div id="image">
+      <audio autoplay loop id="wild">
+        <source src="sound/wild.mp3" type="audio/mpeg">
+      </audio>
+      <div id="container">
+        <div id="healthBar1">
+          <h1 id="pikachu-info">Pikachu</h1>
+          <h1 id="pikachu-level">Lv. 50</h1>
+          <h1 id="pikachu-display-hp">HP</h1>
+          <progress id="healthPikachu" value="100" max="100"></progress>
+        </div>
+        <div id="healthBar2">
+          <h1 id="mewtwo-info">Mewtwo</h1>
+          <h1 id="mewtwo-level">Lv. 50</h1>
+          <h1 id="mewtwo-display-hp">HP</h1>
+          <progress id="healthMewtwo" value="100" max="100"></progress>
+        </div>
+      </div>
     </div>
-  </div>
-  <button id="fight">Fight!</button>
-  <div id="battle">
-    <p id="text">
+    <div id="battle">
+      <button id="fight">Fight!</button>
+      <p id="text">
 
-    </p>
+      </p>
+    </div>
   </div>
 </body>
 

@@ -2,96 +2,292 @@ html {
   margin: 0;
   padding: 0;
 }
-img.pokemon-title {
-  width: 100%;
-}
 
 /* index.html*/
+
+.pokemon-title {
+  height: 30vh;
+}
+img.pokemon-title {
+  width: 60%;
+  margin: 0;
+}
 
 #index {
   background: gray;
 }
+
 #index-header {
-  width: 100vw;
-}
-.title {
+  width: 100%;
   text-align: center;
 }
+
+.title {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 3rem;
+}
+
 .container {
   max-width: 100%;
   margin: auto;
   display: flex;
   flex-direction: row;
-  height: 60vh;
+  height: 40vh;
   justify-content: center;
 }
+
 img#male {
-  max-width: 30%;
+  max-width: 20%;
 }
+
 img#female {
-  max-width: 30%;
+  max-width: 15%;
 }
+
 img#pokeball {
   max-height: 40%;
   max-width: 25%;
   align-self: center;
   animation:spin 4s linear infinite;
 }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .name {
   text-align: center;
+  margin-top: 30px;
+}
+
+input {
+  background: black;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+
+input::placeholder {
+  text-align: center;
+  color: white;
+}
+
+input, textarea {
+  color: white;
+}
+
+#button {
+  margin-left: 20px;
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
 }
 
 /*battle.html*/
+
 #battle-page {
   margin: 0;
 }
+
 #battle-page {
   background-image: url(images/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
-#header {
-  margin-top: 10px;
-  text-align: center;
-  font-size: 5rem;
-  color: white;
-}
+
 #container {
+  margin: 8px;
   display: grid;
   grid-template-areas:
-  'mewtwo'
-  'pikachu';
+  'mewtwo-health mewtwo-health mewtwo-image'
+  'pikachu-image . mewtwo-image'
+  'pikachu-image pikachu-health pikachu-health';
+  height: 70vh;
 }
+
 .mewtwoDiv {
-  grid-area: mewtwo;
+  grid-area: mewtwo-image;
   height: 25vh;
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
+  width: 20vw;
 }
 
 .pikachuDiv {
-  grid-area: pikachu;
+  grid-area: pikachu-image;
+  width: 20vw;
   height: 25vh;
   display: flex;
   justify-content: flex-start;
   margin-left: 20px;
 }
+
 #pikachu {
-  width: 15%;
+  width: 100%;
+  height: 60vh;
+}
+
+#mewtwo {
+  width: 100%;
+  height: 60vh;
 }
 
 #battle {
   background: white;
   margin: 5px;
   border: 5px solid black;
-  height: 28vh;
+  height: 25vh;
 }
 
 #text {
   font-size: 2rem;
   margin-left: .6rem;
 }
+
+#play {
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  text-align: center;
+}
+
+#healthBar1 {
+  grid-area: pikachu-health;
+  border: 2px solid black;
+  background: gray;
+  z-index: 1;
+  opacity: .9;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  margin-left: 100px;
+  height: 20vh;
+  justify-self: end;
+  align-self: flex-end;
+}
+
+#pikachu-info {
+  grid-column-start: 1;
+  grid-column-end: 2; 
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+#pikachu-level {
+  grid-column-start: 2;
+  grid-column-end: 3; 
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 0;
+  justify-self: end;
+}
+
+#pikachu-display-hp {
+  grid-column-start: 1;
+  grid-column-end: 2; 
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-top: 10px;
+  justify-self: end;
+  align-self: end;
+}
+
+#healthPikachu {
+  grid-column-start: 2;
+  grid-column-end: 3; 
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  align-self: end;
+}
+
+#healthMewtwo {
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-top: 0;
+  grid-column-start: 2;
+  grid-column-end: 3; 
+  grid-row-start: 2;
+  grid-row-end: 3;
+  align-self: end;
+}
+
+#healthBar2 {
+  background: gray;
+  grid-area: mewtwo-health;
+  border: 2px solid black;
+  opacity: .9;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 20vh;
+  margin-right: 100px;
+}
+
+#mewtwo-info {
+  grid-column-start: 1;
+  grid-column-end: 2; 
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+
+#mewtwo-level {
+  grid-column-start: 2;
+  grid-column-end: 3; 
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 0;
+  justify-self: end;
+}
+
+#mewtwo-display-hp {
+  grid-column-start: 1;
+  grid-column-end: 2; 
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin-top: 0;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  justify-self: end;
+  align-self: end;
+}
+
+
+progress {
+  background-color: #12de34;
+  border: 0;
+  height: 20px;
+  border-radius: 9px;
+  width: 400px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: white;
+  border: 0;
+  height: 20px;
+  border-radius: 9px;
+  width: 400px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #12de34;
+  border: 0;
+  height: 20px;
+  border-radius: 9px;
+  width: 400px;
+}
+

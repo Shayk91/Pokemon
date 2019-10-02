@@ -6,8 +6,12 @@ const battle = document.querySelector("#battle")
 const text = document.querySelector("#text")
 const fightButton = document.querySelector("#fight");
 const music = document.querySelector("#wild");
-let mewtwoHealth = 50
-let pikachuHealth = 50
+const play = document.querySelector("#play")
+const playButton = document.querySelector("#playButton")
+const page1 = document.querySelector("#page1")
+const pikaHealthBar = document.querySelector("#healthPikachu")
+const mewHealthBar = document.querySelector("#healthMewtwo")
+let fighter = 0;
 
 const getMewtwo = (sprite) => {
   let mewtwo = document.createElement('div')
@@ -35,55 +39,56 @@ window.addEventListener('load', async () => {
 })
 
 
-
-
 const fight = function () {
   text.innerHTML = ''
-  if (mewtwoHealth > 0 && pikachuHealth > 0) {
+  if (mewHealthBar.value > 0 && pikaHealthBar.value > 0) {
     let pikachuAttack = Math.ceil(Math.random() * 20);
     let mewtwoAttack = Math.ceil(Math.random() * 20);
-    if (pikachuAttack === 1 || pikachuAttack === 2) {
-      pikachuHealth -= 5
-      text.innerHTML += `pikachu hits themselves`
-      battle.append(text)
-    } else if (pikachuAttack >= 3 && pikachuAttack <= 10) {
-      pikachuHealth -= 0
-      text.innerHTML += `pikacha misses`
-      battle.append(text)
-    } else if (pikachuAttack >= 11 && pikachuAttack <= 18) {
-      mewtwoHealth -= 10
-      text.innerHTML += `pikachu hits the mewtwo for 10`
-      battle.append(text)
-    } else {
-      mewtwoHealth -= 20
-      text.innerHTML += `pikachu hits the mewtwo for 20`
-      battle.append(text)
+    if (fighter === 0) {
+      if (pikachuAttack === 1 || pikachuAttack === 2) {
+        pikaHealthBar.value -= 5
+        text.innerHTML += `Pikachu hit itself in confusion!!`
+        battle.append(text)
+      } else if (pikachuAttack >= 3 && pikachuAttack <= 10) {
+        pikaHealthBar.value -= 0
+        text.innerHTML += `Pikachu used Thundershock but missed!!`
+        battle.append(text)
+      } else if (pikachuAttack >= 11 && pikachuAttack <= 18) {
+        mewHealthBar.value -= 10
+        text.innerHTML += `Pikachu used Thunderbolt!!`
+        battle.append(text)
+      } else {
+        mewHealthBar.value -= 20
+        text.innerHTML += `Pikachu used Volt Tackle!! Critical hit!!`
+        battle.append(text)
+      }
+      fighter += 1
+    } else if (fighter === 1) {
+      if (mewtwoAttack === 1 || mewtwoAttack === 2) {
+        mewHealthBar.value -= 5
+        text.innerHTML += `Mewtwo hit itself in confusion!!`
+        battle.append(text)
+      } else if (mewtwoAttack >= 3 && mewtwoAttack <= 10) {
+        mewHealthBar.value -= 0
+        text.innerHTML += `Mewtwo used Hyponosis but missed!!`
+        battle.append(text)
+      } else if (mewtwoAttack >= 11 && mewtwoAttack <= 18) {
+        pikaHealthBar.value -= 10
+        text.innerHTML += `Mewtwo used Shadow Ball!!`
+        battle.append(text)
+      } else {
+        pikaHealthBar.value -= 20
+        text.innerHTML += `Mewtwo used Psyhic!! Critical Hit!!`
+        battle.append(text)
+      }
+      fighter -= 1;
     }
-    if (mewtwoAttack === 1 || mewtwoAttack === 2) {
-      mewtwoHealth -= 5
-      text.innerHTML += `mewtwo hits itself`
-      battle.append(text)
-    } else if (mewtwoAttack >= 3 && mewtwoAttack <= 10) {
-      mewtwoHealth -= 0
-      text.innerHTML += `mewtwo misses`
-      battle.append(text)
-    } else if (mewtwoAttack >= 11 && mewtwoAttack <= 18) {
-      pikachuHealth -= 10
-      text.innerHTML += `mewtwo hits the pikachu for 10`
-      battle.append(text)
-    } else {
-      pikachuHealth -= 20
-      text.innerHTML += `mewtwo hits the pikachu for 20`
-      battle.append(text)
-    }
-    text.innerHTML += `pikachu's health is ${pikachuHealth} and mewtwo's health is ${mewtwoHealth}`
-    battle.append(text)
   }
-  else if (mewtwoHealth <= 0) {
-    text.innerHTML += `mewtwo has been slain`
+  else if (mewHealthBar.value <= 0) {
+    text.innerHTML += `Mewtwo has fainted!!`
     battle.append(text)
-  } else if (pikachuHealth <= 0) {
-    text.innerHTML += `pikachu has fallen`
+  } else if (pikaHealthBar.value <= 0) {
+    text.innerHTML += `Pikachu has fainted!!`
     battle.append(text)
   } else {
     text.innerHTML += `pikachu and mewtwo have defeated each other`
@@ -91,3 +96,11 @@ const fight = function () {
   }
 }
 fightButton.addEventListener('click', fight)
+
+const displayName = () => {
+  const getName = document.createElement('div')
+  getName.className = "trainer-name"
+  getName.innerHTML = `<h1 id='start'>${localStorage.name} chooses Pikachu!<h1>`
+  text.append(getName)
+}
+displayName()
