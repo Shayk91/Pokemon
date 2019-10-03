@@ -19,13 +19,19 @@ const mewtwoImage = document.querySelector(".mewtwoDiv")
 const getMewtwo = (sprite) => {
   let mewtwo = document.createElement('div')
   mewtwo.className = "mewtwoDiv"
-  mewtwo.innerHTML = `<img id='mewtwo' src='${sprite}'>`
+  let shiny = Math.ceil(Math.random() * 100)
+  console.log(shiny)
+  if (shiny <= 10) {
+    mewtwo.innerHTML = `<img id='mewtwo' src='${sprite.front_shiny}'>`
+  } else {
+    mewtwo.innerHTML = `<img id='mewtwo' src='${sprite.front_default}'>`
+  }
   display.append(mewtwo)
 }
 const getPikachu = (sprite) => {
   let pikachu = document.createElement('div')
   pikachu.className = "pikachuDiv"
-  pikachu.innerHTML = `<img id='pikachu' src='${sprite}'>`
+  pikachu.innerHTML = `<img id='pikachu' src='${sprite.back_female}'>`
   display.append(pikachu)
 }
 
@@ -33,15 +39,16 @@ const getPikachu = (sprite) => {
 window.addEventListener('load', async () => {
   // let number = Math.ceil(Math.random() * 151)
   const response = await axios.get(`${url}${"mewtwo"}`)
-  console.log(response.data.sprites.front_default)
-  getMewtwo(response.data.sprites.front_default)
+  getMewtwo(response.data.sprites)
 })
 
 
 window.addEventListener('load', async () => {
   const response = await axios.get(`${url}${"pikachu"}`)
-  getPikachu(response.data.sprites.back_female)
+  getPikachu(response.data.sprites)
 })
+
+
 
 
 const fight = function () {
@@ -49,6 +56,7 @@ const fight = function () {
   if (mewHealthBar.value > 0 && pikaHealthBar.value > 0) {
     let pikachuAttack = Math.ceil(Math.random() * 20);
     let mewtwoAttack = Math.ceil(Math.random() * 20);
+    music.play();
     if (fighter === 0) {
       if (pikachuAttack === 1 || pikachuAttack === 2) {
         pikaHealthBar.value -= 10
@@ -92,12 +100,15 @@ const fight = function () {
   else if (mewHealthBar.value <= 0) {
     text.innerHTML += `Mewtwo has fainted!!`
     battle.append(text)
+    music.pause()
   } else if (pikaHealthBar.value <= 0) {
     text.innerHTML += `Pikachu has fainted!!`
     battle.append(text)
+    music.pause();
   } else {
     text.innerHTML += `Pikachu and Mewtwo have both fainted!!`
     battle.append(text)
+    music.pause()
   }
 }
 fightButton.addEventListener('click', fight)
