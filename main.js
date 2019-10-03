@@ -8,7 +8,5 @@ const music = document.querySelector("#music")
 button.addEventListener('click', () => {
   const name = input.value
   window.localStorage.setItem('name', name)
-
-  console.log(name)
 })
 

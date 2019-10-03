@@ -15,6 +15,7 @@ let fighter = 0;
 const pikachuImage = document.querySelector(".pikachuDiv")
 const mewtwoImage = document.querySelector(".mewtwoDiv")
 
+
 const getMewtwo = (sprite) => {
   let mewtwo = document.createElement('div')
   mewtwo.className = "mewtwoDiv"
@@ -30,7 +31,9 @@ const getPikachu = (sprite) => {
 
 
 window.addEventListener('load', async () => {
+  // let number = Math.ceil(Math.random() * 151)
   const response = await axios.get(`${url}${"mewtwo"}`)
+  console.log(response.data.sprites.front_default)
   getMewtwo(response.data.sprites.front_default)
 })
 
@@ -48,7 +51,7 @@ const fight = function () {
     let mewtwoAttack = Math.ceil(Math.random() * 20);
     if (fighter === 0) {
       if (pikachuAttack === 1 || pikachuAttack === 2) {
-        pikaHealthBar.value -= 5
+        pikaHealthBar.value -= 10
         text.innerHTML += `Pikachu hit itself in confusion!!`
         battle.append(text)
       } else if (pikachuAttack >= 3 && pikachuAttack <= 10) {
@@ -56,18 +59,18 @@ const fight = function () {
         text.innerHTML += `Pikachu used Thundershock but missed!!`
         battle.append(text)
       } else if (pikachuAttack >= 11 && pikachuAttack <= 18) {
-        mewHealthBar.value -= 10
+        mewHealthBar.value -= 20
         text.innerHTML += `Pikachu used Thunderbolt!!`
         battle.append(text)
       } else {
-        mewHealthBar.value -= 20
+        mewHealthBar.value -= 30
         text.innerHTML += `Pikachu used Volt Tackle!! Critical hit!!`
         battle.append(text)
       }
       fighter += 1
     } else if (fighter === 1) {
       if (mewtwoAttack === 1 || mewtwoAttack === 2) {
-        mewHealthBar.value -= 5
+        mewHealthBar.value -= 10
         text.innerHTML += `Mewtwo hit itself in confusion!!`
         battle.append(text)
       } else if (mewtwoAttack >= 3 && mewtwoAttack <= 10) {
@@ -75,11 +78,11 @@ const fight = function () {
         text.innerHTML += `Mewtwo used Hyponosis but missed!!`
         battle.append(text)
       } else if (mewtwoAttack >= 11 && mewtwoAttack <= 18) {
-        pikaHealthBar.value -= 10
+        pikaHealthBar.value -= 20
         text.innerHTML += `Mewtwo used Shadow Ball!!`
         battle.append(text)
       } else {
-        pikaHealthBar.value -= 20
+        pikaHealthBar.value -= 30
         text.innerHTML += `Mewtwo used Psyhic!! Critical Hit!!`
         battle.append(text)
       }
@@ -89,11 +92,9 @@ const fight = function () {
   else if (mewHealthBar.value <= 0) {
     text.innerHTML += `Mewtwo has fainted!!`
     battle.append(text)
-    // mewtwoImage.style.display = "none"
   } else if (pikaHealthBar.value <= 0) {
     text.innerHTML += `Pikachu has fainted!!`
     battle.append(text)
-    // pikachuImage.style.display = "none"
   } else {
     text.innerHTML += `Pikachu and Mewtwo have both fainted!!`
     battle.append(text)
@@ -105,7 +106,7 @@ document.addEventListener('keypress', fight)
 const displayName = () => {
   const getName = document.createElement('div')
   getName.className = "trainer-name"
-  getName.innerHTML = `<h1 id='start'>${localStorage.name}: I choose you! Pikachu!!<h1>`
+  getName.innerHTML = `<h1 id='start'>${localStorage.name}: Go Pikachu!! I choose you!!<h1>`
   text.append(getName)
 }
 displayName()

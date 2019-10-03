@@ -1,6 +1,7 @@
 html {
   margin: 0;
   padding: 0;
+  font-family: 'Special Elite', cursive;
 }
 
 /* index.html*/
@@ -26,6 +27,7 @@ img.pokemon-title {
   margin: 20px 0;
   text-align: center;
   font-size: 3rem;
+  color: white;
 }
 
 .container {
@@ -52,7 +54,12 @@ img#pokeball {
   animation:spin 4s linear infinite;
 }
 
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@keyframes spin {
+   100% { 
+     -webkit-transform: rotate(360deg);
+     transform:rotate(360deg); 
+    } 
+  }
 
 .name {
   text-align: center;
@@ -65,6 +72,7 @@ input {
   border-radius: 5px;
   font-size: 1.5rem;
   margin-right: 20px;
+  text-align: center;
 }
 
 input::placeholder {
@@ -312,11 +320,13 @@ progress::-webkit-progress-value {
 }
 
 #start {
-  margin-left: 20px;
-  font-size: 3rem;
+  margin: 32px 0;
+  margin-left: .6rem;
+  font-size: 2rem;
 }
 
 footer {
   text-align: center;
   font-size: .8rem;
+  margin-top: 10px;
 }
