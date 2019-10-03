@@ -31,7 +31,13 @@ const getMewtwo = (sprite) => {
 const getPikachu = (sprite) => {
   let pikachu = document.createElement('div')
   pikachu.className = "pikachuDiv"
-  pikachu.innerHTML = `<img id='pikachu' src='${sprite.back_female}'>`
+  let shiny = Math.ceil(Math.random() * 100)
+  console.log(shiny)
+  if (shiny <= 10) {
+    pikachu.innerHTML = `<img id='pikachu' src='${sprite.back_shiny_female}'>`
+  } else {
+    pikachu.innerHTML = `<img id='pikachu' src='${sprite.back_female}'>`
+  }
   display.append(pikachu)
 }
 
