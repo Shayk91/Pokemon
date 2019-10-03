@@ -112,9 +112,11 @@ input, textarea {
 }
 
 /*battle.html*/
+
 #battle-page {
   margin: 0;
 }
+
 #page1 {
   margin: 0;
   background-image: url(images/background.jpg);
@@ -375,8 +377,6 @@ footer {
 #error {
   display: none;
 }
-
-/* index.html media query */
 
 @media (max-width: 400px) {
   #index {
