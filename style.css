@@ -325,7 +325,7 @@ progress {
 }
 
 progress::-webkit-progress-bar {
-  background-color: white;
+  background-color: lightgray;
   border: 0;
   height: 20px;
   border-radius: 9px;
@@ -369,5 +369,38 @@ footer {
   }
   to {
       color: #12de34;
+  }
+}
+
+/* index.html media query */
+
+@media (max-width: 400px) {
+  #index {
+    background-size: 100% 820px;
+  }
+  #button {
+    margin-left: 0;
+  }
+  input {
+    margin-right: 0;
+  }
+  img.pokemon-title {
+    width: 100%;
+  }
+  .pokemon-title {
+    height: 25vh;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  img#female {
+    max-width: 30%;
+  }
+  img#male {
+    max-width: 30%;
+  }
+  footer {
+    margin-top: 30px;
+    font-size: 1.2rem;
   }
 }
