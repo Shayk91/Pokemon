@@ -20,6 +20,7 @@ const thunderbolt = document.querySelector("#thunderbolt");
 const voltTackle = document.querySelector("#volt-tackle");
 const growl = document.querySelector("#growl")
 const dead = document.querySelector("#dead")
+const victory = document.querySelector("#victory")
 
 let fighter = 0;
 
@@ -123,12 +124,13 @@ const fight = function () {
     text.innerHTML += `Mewtwo has fainted!! <a id='restart-button' href='index.html'>Restart?</a>`
     battle.append(text)
     music.pause()
-    dead.play()
+    victory.play()
   } else if (pikaHealthBar.value <= 0) {
     text.innerHTML += `Pikachu has fainted!! <a id='restart-button' href='index.html'>Restart?</a>`
     battle.append(text)
     music.pause()
     dead.play()
+    dead.volume = 1;
   } else {
     text.innerHTML += `Pikachu and Mewtwo have both fainted!! <a id='restart-button' href='index.html'>Restart?</a>`
     battle.append(text)
