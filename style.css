@@ -15,7 +15,9 @@ img.pokemon-title {
 }
 
 #index {
-  background: gray;
+  background-image: url("images/index-background2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 600px;
 }
 
 #index-header {
@@ -28,6 +30,7 @@ img.pokemon-title {
   text-align: center;
   font-size: 3rem;
   color: white;
+  text-shadow: 2px 2px #DB2FFF;
 }
 
 .container {
@@ -51,23 +54,40 @@ img#pokeball {
   max-height: 40%;
   max-width: 25%;
   align-self: center;
-  animation:spin 4s linear infinite;
+  animation:spin 10s linear infinite;
 }
 
 @keyframes spin {
-   100% { 
+  100% { 
      -webkit-transform: rotate(360deg);
      transform:rotate(360deg); 
-    } 
-  }
+  } 
+}
+
+#magikarp {
+  position: absolute;
+  bottom: -25px;
+  right: 28rem;
+  width: 8%;
+  animation:flop .5s alternate infinite;
+}
+
+@keyframes flop {
+  100% { 
+     -webkit-transform: rotate(40deg);
+     transform:rotate(40deg); 
+  } 
+}
+
 
 .name {
+  position: relative;
   text-align: center;
   margin-top: 30px;
 }
 
 input {
-  background: black;
+  background: #DB2FFF;
   border: none;
   border-radius: 5px;
   font-size: 1.5rem;
@@ -100,7 +120,7 @@ input, textarea {
 #battle-page {
   background-image: url(images/background.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 600px;
 }
 
 #container {
@@ -142,10 +162,11 @@ input, textarea {
 }
 
 #battle {
-  background: gray;
+  background: whitesmoke;
   margin: 5px;
   border: 5px solid black;
   height: 25vh;
+  opacity: .8;
   display: flex;
   align-items: center;
   position: relative;
@@ -183,9 +204,9 @@ input, textarea {
 #healthBar1 {
   grid-area: pikachu-health;
   border: 2px solid black;
-  background: gray;
+  background: whitesmoke;
   z-index: 1;
-  opacity: .9;
+  opacity: .8;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -250,10 +271,10 @@ input, textarea {
 }
 
 #healthBar2 {
-  background: gray;
+  background: whitesmoke;
   grid-area: mewtwo-health;
   border: 2px solid black;
-  opacity: .9;
+  opacity: .8;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -329,4 +350,24 @@ footer {
   text-align: center;
   font-size: .8rem;
   margin-top: 10px;
+  text-shadow: 2px 2px #DB2FFF;
+}
+
+#restart-button {
+  color: white;
+  text-decoration: none;
+  animation-duration: .8s;
+  animation-name: flash;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes flash {
+  from {
+      color: #DB2FFF;
+  }
+  to {
+      color: #12de34;
+  }
 }
