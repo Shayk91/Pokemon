@@ -22,6 +22,7 @@ const growl = document.querySelector("#growl")
 const dead = document.querySelector("#dead")
 const victory = document.querySelector("#victory")
 
+
 let fighter = 0;
 
 const getMewtwo = (sprite) => {
@@ -36,6 +37,7 @@ const getMewtwo = (sprite) => {
   }
   display.append(mewtwo)
 }
+
 const getPikachu = (sprite) => {
   let pikachu = document.createElement('div')
   pikachu.className = "pikachuDiv"
@@ -49,21 +51,16 @@ const getPikachu = (sprite) => {
   display.append(pikachu)
 }
 
-
 window.addEventListener('load', async () => {
   // let number = Math.ceil(Math.random() * 151)
-  const response = await axios.get(`${url}${"mewtwo"}`)
+  const response = await axios.get(`https://cors-anywhere.herokuapp.com/${url}${"mewtwo"}`)
   getMewtwo(response.data.sprites)
 })
 
-
 window.addEventListener('load', async () => {
-  const response = await axios.get(`${url}${"pikachu"}`)
+  const response = await axios.get(`https://cors-anywhere.herokuapp.com/${url}${"pikachu"}`)
   getPikachu(response.data.sprites)
 })
-
-
-
 
 const fight = function () {
   text.innerHTML = ''
@@ -138,6 +135,7 @@ const fight = function () {
     dead.play()
   }
 }
+
 fightButton.addEventListener('click', fight)
 document.addEventListener('keypress', fight)
 

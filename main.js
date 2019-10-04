@@ -5,7 +5,6 @@ const input = document.querySelector("input")
 const music = document.querySelector("#music")
 const pokeball = document.querySelector("#pokeball")
 
-
 button.addEventListener('click', () => {
   const name = input.value
   window.localStorage.setItem('name', name)

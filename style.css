@@ -9,6 +9,7 @@ html {
 .pokemon-title {
   height: 30vh;
 }
+
 img.pokemon-title {
   width: 60%;
   margin: 0;
@@ -78,7 +79,6 @@ img#pokeball {
      transform:rotate(40deg); 
   } 
 }
-
 
 .name {
   position: relative;
@@ -316,7 +316,6 @@ input, textarea {
   justify-self: end;
   align-self: end;
 }
-
 
 progress {
   background-color: #12de34;
