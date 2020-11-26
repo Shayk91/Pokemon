@@ -67,29 +67,29 @@ const fight = function () {
   if (mewHealthBar.value > 0 && pikaHealthBar.value > 0) {
     let pikachuAttack = Math.ceil(Math.random() * 20);
     let mewtwoAttack = Math.ceil(Math.random() * 20);
-    music.play();
-    music.volume = .5;
+    // music.play();
+    // music.volume = .5;
     if (fighter === 0) {
       if (pikachuAttack === 1 || pikachuAttack === 2) {
         pikaHealthBar.value -= 10
         text.innerHTML += `Pikachu hit itself in confusion!!`
         battle.append(text)
-        tackle.play()
+        // tackle.play()
       } else if (pikachuAttack >= 3 && pikachuAttack <= 6) {
         pikaHealthBar.value -= 0
         text.innerHTML += `Pikachu used Thundershock but missed!!`
         battle.append(text)
-        roar.play()
+        // roar.play()
       } else if (pikachuAttack >= 7 && pikachuAttack <= 18) {
         mewHealthBar.value -= 20
         text.innerHTML += `Pikachu used Thunderbolt!!`
         battle.append(text)
-        thunderbolt.play()
+        // thunderbolt.play()
       } else {
         mewHealthBar.value -= 30
         text.innerHTML += `Pikachu used Volt Tackle!! Critical hit!!`
         battle.append(text)
-        voltTackle.play()
+        // voltTackle.play()
       }
       fighter += 1
     } else if (fighter === 1) {
@@ -97,22 +97,22 @@ const fight = function () {
         mewHealthBar.value -= 10
         text.innerHTML += `Mewtwo hit itself in confusion!!`
         battle.append(text)
-        tackle.play()
+        // tackle.play()
       } else if (mewtwoAttack >= 3 && mewtwoAttack <= 6) {
         mewHealthBar.value -= 0
         text.innerHTML += `Mewtwo used Hyponosis but missed!!`
         battle.append(text)
-        growl.play()
+        // growl.play()
       } else if (mewtwoAttack >= 7 && mewtwoAttack <= 18) {
         pikaHealthBar.value -= 20
         text.innerHTML += `Mewtwo used Shadow Ball!!`
         battle.append(text)
-        shadowBall.play()
+        // shadowBall.play()
       } else {
         pikaHealthBar.value -= 30
         text.innerHTML += `Mewtwo used Psychic!! Critical Hit!!`
         battle.append(text)
-        psychic.play()
+        // psychic.play()
       }
       fighter -= 1;
     }
@@ -120,19 +120,19 @@ const fight = function () {
   else if (mewHealthBar.value <= 0) {
     text.innerHTML += `Mewtwo has fainted!! <a id='restart-button' href='index.html'>Restart?</a>`
     battle.append(text)
-    music.pause()
-    victory.play()
+    // music.pause()
+    // victory.play()
   } else if (pikaHealthBar.value <= 0) {
     text.innerHTML += `Pikachu has fainted!! <a id='restart-button' href='index.html'>Restart?</a>`
     battle.append(text)
-    music.pause()
-    dead.play()
-    dead.volume = 1;
+    // music.pause()
+    // dead.play()
+    // dead.volume = 1;
   } else {
     text.innerHTML += `Pikachu and Mewtwo have both fainted!! <a id='restart-button' href='index.html'>Restart?</a>`
     battle.append(text)
-    music.pause()
-    dead.play()
+    // music.pause()
+    // dead.play()
   }
 }
 
