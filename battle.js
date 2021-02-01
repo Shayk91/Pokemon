@@ -1,4 +1,4 @@
-const url = `http://pokeapi.co/api/v2/pokemon/`
+const url = `https://pokeapi.co/api/v2/pokemon/`
 
 const display = document.querySelector("#container")
 const battle = document.querySelector("#battle")
